@@ -23,14 +23,18 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Setup Git
+      uses: actions/setup-git@v1
     - name: Test file names
-      run: bash "$GITHUB_WORKSPACE/tests/test_filenames.sh"
+      run: bash tests/test_filenames.sh
 
   test-licenses:
     runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Setup Git
+      uses: actions/setup-git@v1
     - name: Configure Git
       run: |
         git config --global init.defaultBranch main
@@ -65,7 +69,8 @@ jobs:
       with:
         fetch-depth: 0
         fetch-tags: true
-
+    - name: Setup Git
+      uses: actions/setup-git@v1
     - name: Configure Git
       run: |
         git config --global init.defaultBranch main
@@ -90,7 +95,7 @@ jobs:
       run: uv tool install copier --with copier-templates-extensions
 
     - name: Test project generation and workflow
-      run: bash "$GITHUB_WORKSPACE/tests/test_project.sh"
+      run: bash tests/test_project.sh
 
   test-project-ci:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -101,7 +106,8 @@ jobs:
       with:
         fetch-depth: 0
         fetch-tags: true
-
+    - name: Setup Git
+      uses: actions/setup-git@v1
     - name: Configure Git
       run: |
         git config --global init.defaultBranch main
@@ -125,4 +131,4 @@ jobs:
     - name: Trigger and wait project's own CI
       env:
         GH_TOKEN: ${{ secrets.TESTING_PUSH_TOKEN }}
-      run: bash "$GITHUB_WORKSPACE/tests/wait_ci.sh"
+      run: bash tests/wait_ci.sh
