@@ -16,6 +16,9 @@ _skip_if_exists:
 - CHANGELOG.md
 - docs/insiders/changelog.md
 
+_exclude:
+- "{% if not add_devcontainer %}**/.devcontainer/**{% endif %}"
+
 # PROMPT --------------------------------
 project_name:
   type: str
@@ -138,7 +141,7 @@ python_min_version:
     - "3.11"
     - "3.12"
     - "3.13"
-    - "3.14"
+    # - "3.14"
 
 insiders:
   type: bool
@@ -162,6 +165,11 @@ public_release:
   help: Is this project already released publicly?
   default: false
   when: "{{ insiders }}"
+
+add_devcontainer:
+  type: bool
+  help: Add a VS Code Dev Container configuration?
+  default: true
 
 run_setup_tasks:
   type: bool

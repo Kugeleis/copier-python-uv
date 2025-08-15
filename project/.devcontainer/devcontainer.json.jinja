@@ -1,0 +1,16 @@
+{
+  "name": "{{ project_name }}",
+  "image": "ghcr.io/astral-sh/uv:python{{ python_min_version }}-bookworm",
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "postCreateCommand": "uv sync"
+}
