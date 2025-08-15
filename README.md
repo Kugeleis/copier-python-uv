@@ -33,18 +33,19 @@ Similar templates:
 
 ## Quick setup and usage
 
-Make sure all the
-[requirements](https://pawamoy.github.io/copier-uv/requirements)
-are met, then:
+First, install `copier` and the Jinja extensions required by this template.
+The recommended way is to use `uv tool install`:
 
 ```bash
-copier copy --trust "https://github.com/pawamoy/copier-uv.git" /path/to/your/new/project
+uv tool install --with copier-templates-extensions --with copier-template-extensions copier
 ```
 
-Or even shorter:
+This command installs `copier` into a dedicated virtual environment and makes it available in your shell, while ensuring the extensions are also present in that environment.
+
+Once `copier` is installed, you can use the template:
 
 ```bash
-copier copy --trust "gh:pawamoy/copier-uv" /path/to/your/new/project
+copier copy --trust gh:pawamoy/copier-uv /path/to/your/new/project
 ```
 
 See the [documentation](https://pawamoy.github.io/copier-uv)
