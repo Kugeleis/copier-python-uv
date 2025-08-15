@@ -175,8 +175,9 @@ run_setup_tasks:
   type: bool
   help: Create a virtual environment and install dependencies after generation?
   default: true
+  when: "{{ add_devcontainer != true}}"
 
 # TASKS ---------------------------------
 _tasks:
   - command: uv sync
-    when: "{{ run_setup_tasks }}"
+    when: "{{ add_devcontainer != true and run_setup_tasks }}"

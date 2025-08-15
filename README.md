@@ -1,11 +1,13 @@
 # Copier UV
 
-[![ci](https://github.com/pawamoy/copier-uv/workflows/ci/badge.svg)](https://github.com/pawamoy/copier-uv/actions?query=workflow%3Aci)
-[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://pawamoy.github.io/copier-uv/)
+[![ci](https://github.com/Kugeleis/copier-python-uv/workflows/ci/badge.svg)](https://github.com/Kugeleis/copier-python-uv/actions?query=workflow%3Aci)
+[![documentation](https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat)](https://Kugeleis.github.io/copier-python-uv/)
 [![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#copier-uv/community:gitter.im)
 
 [Copier](https://github.com/copier-org/copier) template
 for Python projects managed by [uv](https://github.com/astral-sh/uv).
+
+This is a fork of [pawamoy/copier-uv](https://github.com/pawamoy/copier-uv).
 
 This copier template is mainly for my own usage,
 but feel free to try it out, or fork it!
@@ -18,6 +20,7 @@ Similar templates:
 ## Features
 
 - [uv](https://github.com/astral-sh/uv) setup, with pre-defined `pyproject.toml`
+- Optional VS Code Dev Container configuration, which skips local setup tasks.
 - Pre-configured tools for code formatting, quality analysis and testing:
   [ruff](https://github.com/charliermarsh/ruff),
   [mypy](https://github.com/python/mypy),
@@ -45,8 +48,8 @@ This command installs `copier` into a dedicated virtual environment and makes it
 Once `copier` is installed, you can use the template:
 
 ```bash
-copier copy --trust gh:pawamoy/copier-uv /path/to/your/new/project
+copier copy --trust gh:Kugeleis/copier-python-uv /path/to/your/new/project
 ```
 
-See the [documentation](https://pawamoy.github.io/copier-uv)
+See the [documentation](https://Kugeleis.github.io/copier-python-uv)
 for more details.
