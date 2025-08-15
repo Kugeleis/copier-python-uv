@@ -24,7 +24,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Test file names
-      run: bash tests/test_filenames.sh
+      run: bash "$GITHUB_WORKSPACE/tests/test_filenames.sh"
 
   test-licenses:
     runs-on: self-hosted
@@ -90,7 +90,7 @@ jobs:
       run: uv tool install copier --with copier-templates-extensions
 
     - name: Test project generation and workflow
-      run: bash tests/test_project.sh
+      run: bash "$GITHUB_WORKSPACE/tests/test_project.sh"
 
   test-project-ci:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -125,4 +125,4 @@ jobs:
     - name: Trigger and wait project's own CI
       env:
         GH_TOKEN: ${{ secrets.TESTING_PUSH_TOKEN }}
-      run: bash tests/wait_ci.sh
+      run: bash "$GITHUB_WORKSPACE/tests/wait_ci.sh"
