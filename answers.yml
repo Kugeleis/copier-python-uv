@@ -1,0 +1,8 @@
+project_name: "test-project"
+project_description: "A test project"
+author_fullname: "Test User"
+author_email: "test@example.com"
+author_username: "testuser"
+repository_provider: "github.com"
+copyright_license: "ISC"
+insiders: false
