@@ -129,6 +129,17 @@ python_package_command_line_name:
   help: Your CLI name if any (for use in the shell)
   default: "{{ project_name | slugify }}"
 
+python_min_version:
+  type: str
+  help: Select the minimum Python version this package will support.
+  default: "3.12"
+  choices:
+    - "3.10"
+    - "3.11"
+    - "3.12"
+    - "3.13"
+    - "3.14"
+
 insiders:
   type: bool
   help: Does this project have an Insiders version?
@@ -159,5 +170,5 @@ run_setup_tasks:
 
 # TASKS ---------------------------------
 _tasks:
-  - command: uv sync --upgrade
+  - command: uv sync
     when: "{{ run_setup_tasks }}"
