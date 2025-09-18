@@ -1,4 +1,6 @@
-.PHONY: $(MAKECMDGOALS)
+.PHONY: changelog clean cleantests docs docs-deploy format gen generate reset-history release bump-major bump-minor bump-patch bump bump-dry-run setup test wait-ci $(DUTIES)
+
+BUMP_ARGS ?= 
 
 changelog:
 	@.venv/bin/git-changelog -Tio CHANGELOG.md -Bauto -c angular -n pep440
@@ -33,6 +35,20 @@ release:
 	@git tag $(version)
 	@git push
 	@git push --tags
+
+bump-major:
+	@bump-my-version bump major $(BUMP_ARGS)
+
+bump-minor:
+	@bump-my-version bump minor $(BUMP_ARGS)
+
+bump-patch:
+	@bump-my-version bump patch $(BUMP_ARGS)
+
+bump: bump-patch
+
+bump-dry-run:
+	@$(MAKE) bump BUMP_ARGS=--dry-run
 
 setup:
 	@uv venv --seed

@@ -1,6 +1,6 @@
 [project]
 name = "copier-python-uv"
-version = "0.1.0"
+version = "1.10.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -15,3 +15,24 @@ dependencies = [
     "reuse>=5.1.1",
     "ruff>=0.13.0",
 ]
+
+[tool.bumpversion]
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+serialize = ["{major}.{minor}.{patch}"]
+tag = true
+sign_tags = false
+tag_name = "{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = false
+commit = true
+message = "Bump version: {current_version} → {new_version}"
+moveable_tags = []
+commit_args = ""
+setup_hooks = []
+pre_commit_hooks = []
+post_commit_hooks = []
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
